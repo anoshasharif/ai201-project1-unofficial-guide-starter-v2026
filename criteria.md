@@ -23,8 +23,7 @@ For at least 4 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
 
 **Why this target:**
-<!-- e.g. "One of my questions is about a topic only two documents mention, so
-     I expect that one to be hard." -->
+I chose 4 out of 5 because my questions cover different information in the city guides, such as food, attractions, hotels, transportation, and when to visit. I expect the system to find the right information most of the time, but one question may be harder to retrieve.
 
 ---
 
@@ -33,8 +32,7 @@ contains the answer.
 Every answer the system produces names at least one source document.
 
 **Why this target:**
-<!-- Why all five and not four? What about your setup makes that achievable —
-     or what would have to go wrong for it not to be? -->
+I chose every answer because the purpose of this system is to answer questions using information from the city guides. Every answer should identify where its information came from so the user can verify it.
 
 ---
 
@@ -50,48 +48,29 @@ in at least 4 of 5 tries.
      just keep five of them, or the "4 of 5" above has nothing to be 4 of. -->
 
 **Why this target:**
-<!-- What did your distances look like when you set the cutoff in Milestone 4?
-     Was there a clean gap, or did the two groups overlap? -->
+I chose 4 out of 5 because the system should reject most questions that have nothing to do with the city guides. I allowed one mistake because some unrelated questions could still retrieve a chunk that happens to contain similar words.
 
 ---
 
 ## 4. Something about your chunks
 
-<!-- YOU WRITE THIS ONE.
+<!-- Chunks provide complete and informative context
 
-     How would you know if your chunks were the right size? Name something
-     countable or observable.
-
-     Examples of the right shape — don't copy these, they should come from
-     what you actually saw in Milestone 3:
-       - "At least 4 of 5 sampled chunks read as a complete thought, with no
-          sentence cut in half at either end."
-       - "No chunk is shorter than 200 characters, since anything below that
-          in my corpus turned out to be a heading with no content under it." -->
-
-
+At least 4 of 5 sampled chunks should contain a complete thought and enough information to understand the main point without needing the next chunk. -->
 
 **Why this target:**
 
-
+I chose 4 out of 5 because I want the chunks to provide enough context for the system to give thorough and informative answers. I allowed one chunk to be incomplete because some information may naturally be split between sections or chunks.
 
 ---
 
 ## 5. Your choice
 
-<!-- YOU WRITE THIS ONE TOO.
-
-     Pick something you actually care about getting right. It could be about
-     speed, about refusals, about a particular kind of question your corpus
-     handles badly, about source attribution being correct rather than merely
-     present — anything, as long as it names a number or an observable
-     outcome. -->
-
-
+<!-- For at least 4 of my 5 test questions, the source document named in the answer should contain information that supports the answer given. -->
 
 **Why this target:**
 
-
+ I chose 4 out of 5 because I want the system to provide accurate information that can be verified using the city guides. I allowed one answer to miss the target because the system may retrieve a related source that does not fully support every part of its response.
 
 ---
 
