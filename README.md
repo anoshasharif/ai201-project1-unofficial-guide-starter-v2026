@@ -21,11 +21,8 @@
 
 ## What This Does
 
-<!-- Three or four sentences. Which corpus you picked, and the kinds of
-     questions your system answers. Write it for someone who has never seen
-     this repo.
+I chose the city guides corpus, which contains travel information about different towns and locations. My system retrieves information from these guides to answer questions about attractions, food, places to stay, transportation, and the best times to visit. It uses the most relevant sections of the guides to answer the question and identifies the source of the information. If the documents do not contain enough relevant information, the system is designed to refuse to answer rather than make up information.
 
-     Milestone 5. -->
 
 ## Chunking Strategy
 
@@ -184,18 +181,10 @@ a minor injuries unit locally with limited hours.
 
 ## How I Used AI
 
-<!-- Two specific moments. For each: what you asked for, what came back, and
-     what you changed about it.
+**1.** I asked AI to help me understand how to replace the starter chunker for the city guides corpus. It suggested splitting the guides around paragraph boundaries with a maximum size of about 1,000 characters instead of cutting the text at arbitrary character positions. I used this approach and tested the resulting chunks to make sure they contained enough context and complete thoughts.
 
-     "I asked Claude to write the chunking function from my notes. It ignored
-     the overlap, so I added that myself" is the level of detail we're after.
-     "I used AI to help me code" is not.
+**2.** I asked AI to help me interpret the retrieval distances from my test questions. It helped me compare the in-scope distances of 0.302–0.478 with the out-of-scope distances of 0.853–1.046. Based on that comparison, I kept the relevance cutoff at 0.6 because it fell between the two groups, and I tested it to confirm that the system accepted the relevant questions and refused the unrelated ones.
 
-     Milestone 5. -->
-
-**1.**
-
-**2.**
 
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
