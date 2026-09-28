@@ -54,9 +54,9 @@ I chose 4 out of 5 because the system should reject most questions that have not
 
 ## 4. Something about your chunks
 
-<!-- Chunks provide complete and informative context
+Chunks provide complete and informative context
 
-At least 4 of 5 sampled chunks should contain a complete thought and enough information to understand the main point without needing the next chunk. -->
+At least 4 of 5 sampled chunks should contain a complete thought and enough information to understand the main point without needing the next chunk.
 
 **Why this target:**
 
@@ -66,7 +66,7 @@ I chose 4 out of 5 because I want the chunks to provide enough context for the s
 
 ## 5. Your choice
 
-<!-- For at least 4 of my 5 test questions, the source document named in the answer should contain information that supports the answer given. -->
+For at least 4 of my 5 test questions, the source document named in the answer should contain information that supports the answer given.
 
 **Why this target:**
 

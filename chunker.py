@@ -85,7 +85,7 @@ def split_documents(documents: list[Document]) -> list[Chunk]:
     Split city guides using paragraph boundaries so chunks preserve
     complete thoughts and enough context to stand on their own.
     """
-    max_size = 1000
+    max_size = config.CHUNK_SIZE
     chunks = []
 
     for doc in documents:
@@ -95,6 +95,40 @@ def split_documents(documents: list[Document]) -> list[Chunk]:
         index = 0
 
         for paragraph in paragraphs:
+
+            # Handle a single paragraph that is larger than the chunk size
+            if len(paragraph) > max_size:
+                if current_paragraphs:
+                    chunks.append(
+                        Chunk(
+                            text="\n\n".join(current_paragraphs),
+                            source=doc.source,
+                            index=index,
+                            produced_by="chunker.py::split_documents",
+                        )
+                    )
+                    index += 1
+                    current_paragraphs = []
+
+                start = 0
+                while start < len(paragraph):
+                    piece = paragraph[start:start + max_size].strip()
+
+                    if piece:
+                        chunks.append(
+                            Chunk(
+                                text=piece,
+                                source=doc.source,
+                                index=index,
+                                produced_by="chunker.py::split_documents",
+                            )
+                        )
+                        index += 1
+
+                    start += max_size
+
+                continue
+
             candidate = "\n\n".join(current_paragraphs + [paragraph])
 
             if current_paragraphs and len(candidate) > max_size:
@@ -108,6 +142,7 @@ def split_documents(documents: list[Document]) -> list[Chunk]:
                 )
                 index += 1
 
+                # Carry the previous paragraph forward for context
                 current_paragraphs = [current_paragraphs[-1]]
 
             current_paragraphs.append(paragraph)

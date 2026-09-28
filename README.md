@@ -26,18 +26,11 @@ I chose the city guides corpus, which contains travel information about differen
 
 ## Chunking Strategy
 
-**Chunk size:**
-**Overlap:**
+**Chunk size:** Maximum of approximately 1,000 characters
 
-<!-- What about YOUR documents made you pick these numbers? Short posts and
-     long sectioned guides don't want the same chunking, and "800 seemed
-     reasonable" earns nothing. Point at something you noticed when you read
-     the documents in Milestone 1.
+**Overlap:** One previous paragraph is carried forward into the next chunk
 
-     If you changed your mind partway through, say so and say why. That's worth
-     more than pretending you got it right first time.
-
-     Milestone 3. -->
+I chose this strategy because the city guides are longer documents organized into sections and paragraphs. Instead of splitting the text at a fixed character position, I wanted related information to stay together as complete thoughts. I used a maximum size of about 1,000 characters while splitting at paragraph boundaries, and carried the previous paragraph into the next chunk to preserve context between chunks.
 
 ## Sample Chunks
 
