@@ -149,15 +149,14 @@ a minor injuries unit locally with limited hours.
 
 ## Sample Answer
 
-<!-- One complete question and answer, pasted as text, with the source line
-     visible. Milestone 4. -->
+**Question:** What public transportation is available for getting around Brightwater?
 
-**Question:**
+**Answer:** For getting around Brightwater, there is a local bus that runs two routes on a 30-minute headway until 7 pm and stops entirely on Sundays, as well as taxis that must be phoned since they do not circulate looking for fares (`guide_brightwater.md`). Additionally, a shuttle meets the four busiest arrivals from the train station to the campus (`guide_brightwater.md`).
 
-**Answer:**
+**Sources retrieved:** `guide_brightwater.md`, `guide_halden_bay.md`, `guide_kestrelford.md`, `guide_regional_transport.md`
 
-```
-```
+**Best distance:** 0.302  
+**Relevance cutoff:** 0.6
 
 **My relevance cutoff:**
 
@@ -168,11 +167,20 @@ a minor injuries unit locally with limited hours.
      did those two groups look like? Where was the gap? Put the actual numbers
      here — the table below wants all ten rows.
 
-     Milestone 4. -->
+     Milestone 4. --> I chose a relevance cutoff of 0.6. My five in-scope questions had best distances ranging from 0.302 to 0.478, while my five out-of-scope questions ranged from 0.853 to 1.046. Since lower distances indicate closer matches, 0.6 falls between the two groups and allows the relevant questions through while rejecting the unrelated ones.
 
 | Question | In corpus? | Best distance |
 |---|---|---|
-|  |  |  |
+| What are some fun attractions to visit in Brightwater? | Yes | 0.471 |
+| Where can visitors find affordable food in Brightwater? | Yes | 0.478 |
+| Where should visitors stay in Brightwater for a riverside location? | Yes | 0.447 |
+| What public transportation is available for getting around Brightwater? | Yes | 0.302 |
+| When is a good time to visit Brightwater for good weather while avoiding the busiest period? | Yes | 0.356 |
+| What is the capital of Mongolia? | No | 0.880 |
+| How do I change the oil in a diesel engine? | No | 0.905 |
+| Who won the 1994 World Cup? | No | 1.046 |
+| What is the recommended dosage of ibuprofen for a headache? | No | 0.853 |
+| How do I write a for loop in Rust? | No | 0.878 |
 
 ## How I Used AI
 
@@ -294,7 +302,7 @@ a minor injuries unit locally with limited hours.
      and is more interesting than one that worked. What matters is that you can
      tell.
 
-     Milestone 4. -->
+     Milestone 4. --> 
 
 ## What's Still Broken
 
