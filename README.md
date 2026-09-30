@@ -288,11 +288,11 @@ It named `guide_seasons.md` as the source supporting the answer. The named sourc
 
 | # | Criterion | Verdict | How I decided |
 |---|---|---|---|
-| 1 |  |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
-| 4 |  |  |  |
-| 5 |  |  |  |
+| 1 | Retrieved chunk contains the answer | MET | The target was at least 4 of 5 questions, and 4 of 5 passed in all three runs, so the target held consistently. |
+| 2 | Every answer names a source | MET | The target was 5 of 5 answers naming at least one source, and all five answers named a source in all three runs. |
+| 3 | Gate stops out-of-corpus questions | MET | The target was at least 4 of 5 out-of-scope questions being refused, and the relevance gate refused all 5 of 5. |
+| 4 | Sampled chunks contain a complete thought and enough context | MET | The target was at least 4 of 5 sampled chunks, and all 5 sampled chunks contained understandable information and enough context to identify their main point. |
+| 5 | Named source supports the answer | MET | The target was at least 4 of 5 questions, and the named sources supported the answers for all 5 questions in each run. |
 
 ## Diagnoses
 
