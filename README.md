@@ -323,10 +323,14 @@ However, Criterion 1 had the closest result to its threshold. Its target was 4 o
 
 **What I changed:**
 
+I increased `TOP_K` from 5 to 7 so that retrieval would return two additional chunks for each question.
+
 **Why I picked it:**
 
 <!-- Connect it to a specific diagnosis above in one sentence. If you can't,
      you picked a fix because it sounded impressive. -->
+
+Criterion 1 was my weakest criterion, meeting its original target at exactly 4 of 5 questions. I wanted to test whether retrieving more chunks would help the system find enough information to improve the remaining failure.
 
 ### Run Log — After
 
@@ -335,11 +339,13 @@ However, Criterion 1 had the closest result to its threshold. Its target was 4 o
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 3/5 | 3/5 | 4/5 | MISSED |
+| 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 4. Sampled chunks contain a complete thought and enough context | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 5. Named source supports the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+
+After-run file: `results/run_2026-09-29_2206_after.md`
 
 **Did it help?**
 
@@ -349,6 +355,8 @@ However, Criterion 1 had the closest result to its threshold. Its target was 4 o
      tell.
 
      Milestone 4. --> 
+
+No. Increasing `TOP_K` from 5 to 7 did not improve the system. Before the change, Criterion 1 achieved 4 of 5 in all three runs. After the change, it achieved 3 of 5, 3 of 5, and 4 of 5. Because the target of 4 of 5 had to hold across all three runs, Criterion 1 became MISSED. The other four criteria continued to meet their targets. This suggests that retrieving more chunks did not solve the original problem and may have made the generated answers less consistent.
 
 ## What's Still Broken
 
