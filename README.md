@@ -314,6 +314,11 @@ It named `guide_seasons.md` as the source supporting the answer. The named sourc
 
      Milestone 3. -->
 
+
+None of my five criteria were missed. Each criterion met its original target across the three runs.
+
+However, Criterion 1 had the closest result to its threshold. Its target was 4 of 5 questions, and it achieved exactly 4 of 5 in all three runs. Because the system only met the minimum target rather than exceeding it, I would tighten this criterion in a future evaluation from 4 of 5 to 5 of 5 questions. This would make the evaluation stricter and expose the remaining failure instead of allowing one question to fail.
+
 ## The Improvement
 
 **What I changed:**
