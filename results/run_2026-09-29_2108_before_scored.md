@@ -1,0 +1,191 @@
+# Run log — before_scored
+
+- Produced by: `run_eval.py::main`
+- Retrieval: `store.py::search`, chunks from `chunker.py::split_documents`
+- Corpus: `city_guides` (index variant `default`)
+- top-k: 5 · relevance cutoff: 0.6
+- Runs per question: 3, caching off
+- When: 2026-09-29 21:08
+
+This table is one row per QUESTION. The run log your README asks for is
+one row per CRITERION, so aggregate these into it — criterion 1 is how many
+of your questions had the answer in the retrieved chunks, and so on.
+
+| Question | Run 1 | Run 2 | Run 3 |
+|---|---|---|---|
+| What are some fun attractions to visit in Brightwater? | pass | pass | pass |
+| Where can visitors find affordable food in Brightwater? | pass | pass | pass |
+| Where should visitors stay in Brightwater for a riverside location? | fail | fail | fail |
+| What public transportation is available for getting around Brightwater? | pass | pass | pass |
+| When is a good time to visit Brightwater for good weather while avoiding the busiest period? | pass | pass | pass |
+
+---
+
+## The relevance gate on out-of-corpus questions
+
+Produced by `run_eval.py::check_out_of_scope`, cutoff 0.6. Refused 5 of 5.
+
+Retrieval is deterministic and the gate is a comparison against a
+fixed number, so these do not vary between runs — one pass over the
+list is the whole measurement.
+
+| Out-of-scope question | Best distance | Gate |
+|---|---|---|
+| What is the capital of Mongolia? | 0.880 | refused |
+| How do I change the oil in a diesel engine? | 0.905 | refused |
+| Who won the 1994 World Cup? | 1.046 | refused |
+| What is the recommended dosage of ibuprofen for a headache? | 0.853 | refused |
+| How do I write a for loop in Rust? | 0.878 | refused |
+
+---
+
+## Real output
+
+This is what the system actually produced. Paste the relevant parts
+into your README underneath the table — the rubric asks for real
+output as text, not a description of it.
+
+### What are some fun attractions to visit in Brightwater? — run 1
+
+- Best distance: 0.4710 (passed the gate)
+- Sources retrieved: guide_accessibility.md, guide_brightwater.md, guide_elder_ness.md, guide_halden_bay.md, guide_seasons.md
+
+```
+Based on the provided documents, Brightwater features the mill museum, which is step-free, as well as being level along the river and through the centre. 
+
+Source: `guide_accessibility.md`
+```
+
+### What are some fun attractions to visit in Brightwater? — run 2
+
+- Best distance: 0.4710 (passed the gate)
+- Sources retrieved: guide_accessibility.md, guide_brightwater.md, guide_elder_ness.md, guide_halden_bay.md, guide_seasons.md
+
+```
+Based on the provided documents, the mill museum is step-free (guide_accessibility.md). Additionally, the town is level along the river and through the centre, and the river path is easy for cycling (guide_brightwater.md and guide_accessibility.md). 
+
+Sources: `guide_accessibility.md` and `guide_brightwater.md`.
+```
+
+### What are some fun attractions to visit in Brightwater? — run 3
+
+- Best distance: 0.4710 (passed the gate)
+- Sources retrieved: guide_accessibility.md, guide_brightwater.md, guide_elder_ness.md, guide_halden_bay.md, guide_seasons.md
+
+```
+Based on the provided documents, Brightwater's attractions include the mill museum, which is step-free. Additionally, the town is level along the river and through the centre. 
+
+Sources: `guide_accessibility.md` and `guide_brightwater.md`.
+```
+
+### Where can visitors find affordable food in Brightwater? — run 1
+
+- Best distance: 0.4779 (passed the gate)
+- Sources retrieved: guide_brightwater.md, guide_eating.md, guide_elder_ness.md, guide_givens_mill.md
+
+```
+Visitors can find comparable food for about a third less than the riverside strip on Corry Lane, which is two streets inland (guide_eating.md).
+```
+
+### Where can visitors find affordable food in Brightwater? — run 2
+
+- Best distance: 0.4779 (passed the gate)
+- Sources retrieved: guide_brightwater.md, guide_eating.md, guide_elder_ness.md, guide_givens_mill.md
+
+```
+According to `guide_eating.md`, Corry Lane (two streets inland from Brightwater's riverside strip) serves comparable food for about a third less than the riverside strip, which is priced for hotel visitors.
+```
+
+### Where can visitors find affordable food in Brightwater? — run 3
+
+- Best distance: 0.4779 (passed the gate)
+- Sources retrieved: guide_brightwater.md, guide_eating.md, guide_elder_ness.md, guide_givens_mill.md
+
+```
+Visitors can find comparable food for about a third less than Brightwater's riverside strip on Corry Lane, which is located two streets inland (guide_eating.md).
+```
+
+### Where should visitors stay in Brightwater for a riverside location? — run 1
+
+- Best distance: 0.4465 (passed the gate)
+- Sources retrieved: guide_accessibility.md, guide_brightwater.md, guide_halden_bay.md
+
+```
+Visitors to Brightwater can stay at the two hotels located on the riverside, which are the obvious choice for a riverside location (*guide_brightwater.md*).
+```
+
+### Where should visitors stay in Brightwater for a riverside location? — run 2
+
+- Best distance: 0.4465 (passed the gate)
+- Sources retrieved: guide_accessibility.md, guide_brightwater.md, guide_halden_bay.md
+
+```
+Visitors can choose from the two hotels on the riverside, which are the obvious choice for a riverside location. This information comes from `guide_brightwater.md`.
+```
+
+### Where should visitors stay in Brightwater for a riverside location? — run 3
+
+- Best distance: 0.4465 (passed the gate)
+- Sources retrieved: guide_accessibility.md, guide_brightwater.md, guide_halden_bay.md
+
+```
+According to guide_brightwater.md, the two hotels on the riverside are the obvious choice for a riverside location.
+```
+
+### What public transportation is available for getting around Brightwater? — run 1
+
+- Best distance: 0.3024 (passed the gate)
+- Sources retrieved: guide_brightwater.md, guide_halden_bay.md, guide_kestrelford.md, guide_regional_transport.md
+
+```
+For getting around Brightwater, there is a local bus that runs two routes on a 30-minute headway until 7 pm and stops entirely on Sundays, as well as taxis that must be phoned since they do not circulate for fares (guide_brightwater.md).
+```
+
+### What public transportation is available for getting around Brightwater? — run 2
+
+- Best distance: 0.3024 (passed the gate)
+- Sources retrieved: guide_brightwater.md, guide_halden_bay.md, guide_kestrelford.md, guide_regional_transport.md
+
+```
+For getting around Brightwater, there is a local bus that runs two routes on a 30-minute headway until 7 pm and stops entirely on Sundays (*guide_brightwater.md*). Additionally, taxis are available, though they must be phoned as they do not circulate looking for fares (*guide_brightwater.md*).
+```
+
+### What public transportation is available for getting around Brightwater? — run 3
+
+- Best distance: 0.3024 (passed the gate)
+- Sources retrieved: guide_brightwater.md, guide_halden_bay.md, guide_kestrelford.md, guide_regional_transport.md
+
+```
+To get around Brightwater, there is a local bus that runs two routes on a 30-minute headway until 7 pm and stops entirely on Sundays (*guide_brightwater.md*). Additionally, there are taxis, but they must be phoned as they do not circulate looking for fares (*guide_brightwater.md*).
+```
+
+### When is a good time to visit Brightwater for good weather while avoiding the busiest period? — run 1
+
+- Best distance: 0.3564 (passed the gate)
+- Sources retrieved: guide_brightwater.md, guide_halden_bay.md, guide_regional_transport.md, guide_seasons.md
+
+```
+According to `guide_seasons.md`, late May is arguably the best week to visit Brightwater because it features long days, everything running, and the students gone. Additionally, `guide_seasons.md` states that September is a sweet spot because it is warm, quiet, and everything is still open before term starts in late September.
+```
+
+### When is a good time to visit Brightwater for good weather while avoiding the busiest period? — run 2
+
+- Best distance: 0.3564 (passed the gate)
+- Sources retrieved: guide_brightwater.md, guide_halden_bay.md, guide_regional_transport.md, guide_seasons.md
+
+```
+Late May is arguably the best week of the year in Brightwater, offering long days, everything running, and the students gone. 
+
+Source: `guide_seasons.md`
+```
+
+### When is a good time to visit Brightwater for good weather while avoiding the busiest period? — run 3
+
+- Best distance: 0.3564 (passed the gate)
+- Sources retrieved: guide_brightwater.md, guide_halden_bay.md, guide_regional_transport.md, guide_seasons.md
+
+```
+Late May is arguably the best week of the year in Brightwater, featuring long days, everything running, and the students gone. 
+
+Source: `guide_seasons.md`
+```

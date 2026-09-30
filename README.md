@@ -206,15 +206,74 @@ a minor injuries unit locally with limited hours.
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 4/5 | 4/5 | 4/5 | MET |
+| 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 4. Sampled chunks contain a complete thought and enough context | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 5. Named source supports the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
 
 <!-- Underneath, paste the REAL output for each criterion from one of your
      runs — the actual text your system produced, not a description of it.
      Name the file and function that produced it. -->
+
+**Criterion 1 — Retrieved chunk contains the answer**
+
+File: `results/run_2026-09-29_2108_before_scored.md`  
+Produced by: `run_eval.py::main`
+
+For the question "Where can visitors find affordable food in Brightwater?", the retrieved sources included `guide_eating.md`, and the system answered:
+
+> Based on the documents provided, visitors can find comparable food for about a third less than the riverside strip on Corry Lane, which is two streets inland (`guide_eating.md`).
+
+The scorer marked 4 of the 5 test questions as passing in each run.
+
+**Criterion 2 — Every answer names a source**
+
+File: `results/run_2026-09-29_2108_before_scored.md`  
+Produced by: `run_eval.py::main`
+
+For the transportation question, the system produced:
+
+> Public transportation for getting around Brightwater includes a local bus that runs two routes on a 30-minute headway until 7 pm and stops entirely on Sundays, as well as taxis that must be phoned since they do not circulate for fares (`guide_brightwater.md`).
+
+All five answers named at least one source document.
+
+**Criterion 3 — Gate stops out-of-corpus questions**
+
+File: `results/run_2026-09-29_2108_before_scored.md`  
+Produced by: `run_eval.py::check_out_of_scope`
+
+The relevance gate produced:
+
+> What is the capital of Mongolia? — best distance 0.880 — refused  
+> How do I change the oil in a diesel engine? — best distance 0.905 — refused  
+> Who won the 1994 World Cup? — best distance 1.046 — refused  
+> What is the recommended dosage of ibuprofen for a headache? — best distance 0.853 — refused  
+> How do I write a for loop in Rust? — best distance 0.878 — refused
+
+The gate refused 5 of 5 out-of-scope questions.
+
+**Criterion 4 — Sampled chunks contain a complete thought and enough context**
+
+Output from: `python app.py chunks -n 5`  
+Produced by: `chunker.py::split_documents`
+
+One sampled chunk from `guide_kestrelford.md#1` contained:
+
+> Four pubs, two cafés, and a bakery that sells out by 11am. The pubs serve food between 12 and 2 and again between 6 and 8:30, and outside those windows there is nowhere to eat at all.
+
+The five sampled chunks contained readable sections with enough surrounding information to understand their main points without needing the next chunk.
+
+**Criterion 5 — Named source supports the answer**
+
+File: `results/run_2026-09-29_2108_before_scored.md`  
+Produced by: `run_eval.py::main`
+
+For the question "When is a good time to visit Brightwater for good weather while avoiding the busiest period?", the system answered:
+
+> Late May is arguably the best time to visit Brightwater because the days are long, everything is running, and the students are gone.
+
+It named `guide_seasons.md` as the source supporting the answer. The named sources supported the answers for all 5 test questions.
 
 ## Verdicts
 
