@@ -178,6 +178,8 @@ a minor injuries unit locally with limited hours.
 
 **2.** I asked AI to help me interpret the retrieval distances from my test questions. It helped me compare the in-scope distances of 0.302–0.478 with the out-of-scope distances of 0.853–1.046. Based on that comparison, I kept the relevance cutoff at 0.6 because it fell between the two groups, and I tested it to confirm that the system accepted the relevant questions and refused the unrelated ones.
 
+For Unit 2, I used AI to help interpret my evaluation results, compare the before and after runs, and identify patterns in the failed tests. I also used AI to help think through which pipeline change to test and to organize my findings in the README. I made the final decisions about my criteria, verdicts, improvement, and conclusions based on the actual output from my system.
+
 
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
@@ -368,9 +370,15 @@ No. Increasing `TOP_K` from 5 to 7 did not improve the system. Before the change
 
      Milestone 5. -->
 
+Criterion 1 is still missed after the improvement. Its target was 4 of 5 questions, but after increasing `TOP_K` from 5 to 7, the three runs scored 3/5, 3/5, and 4/5. Retrieving more chunks therefore did not solve the problem.
+
+If I continued working on it, I would investigate why the failed questions are not consistently meeting the expected answer and test a different retrieval approach, such as hybrid semantic and keyword search. I stopped here because this milestone required one measured improvement, and I wanted to keep the experiment limited to one change so I could clearly measure its effect.
+
 ## What I'd Do Differently
 
 <!-- Knowing what you know now — which of your five criteria would you write
      differently, and why?
 
      Milestone 5. -->
+
+I would make Criterion 1 more precise. Instead of simply saying that a retrieved chunk "contains the answer," I would define exactly what counts as containing the answer, such as requiring the top three retrieved chunks to contain the specific information needed to answer the question. This would make the criterion easier to measure consistently and separate retrieval quality from the wording of the generated response.
